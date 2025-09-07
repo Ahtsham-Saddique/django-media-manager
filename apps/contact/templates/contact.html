@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5 ">
+
+    <form  method ="post"  >
+        {% csrf_token %}
+        {{form.as_p}}
+    
+        <button type="submit">Submit</button> 
+    </form>
+``
+    
+        <h2>Submitted Contacts:</h2>
+
+    {% for contact in formm %}
+        <p><strong>Name:</strong> {{ contact.name }}</p>
+        <p><strong>Email:</strong> {{ contact.email }}</p>
+        <p><strong>Message:</strong> {{ contact.message }}</p>
+        <hr>
+    {% empty %}
+        <p>No contacts submitted yet.</p>
+    {% endfor %}
+
+ 
+</div>
+{% endblock content %}

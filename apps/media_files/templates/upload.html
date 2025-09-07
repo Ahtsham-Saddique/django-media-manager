@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-3">
+    <h2>Upload File</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+  
+        <div class="mb-3">
+            <label for="file_name" class="form-label">File-Name</label>
+            <input type="text" class="form-control" name="file_name" id="file_name">
+        </div>
+
+        <div class="mb-3 form-check">
+            <input type="file" name="upload_file" class="form-check-input" id="upload_file">
+            <label class="form-check-label" for="upload_file">Upload File</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% for file in uploads  %}
+<div class="container my-3 d-flex flex-wrap">
+    <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">{{file.file_name}}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+</div>
+{% endfor %}
+{% endblock content %}

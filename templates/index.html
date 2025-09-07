@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>
+    <br><br><br><br>
+    {% if loggedin %}
+    Hello  {{user_name}} <br>
+
+    {% for lang in languages %}
+    <h2>{{forloop.counter}}--{{lang}}</h2>
+    {% endfor %}
+    Lorem ipsum dolor sit amet
+     consectetur adipisicing elit.
+      Sunt, asperiores?</p>
+      {% else %}
+      <h2>please login..</h2>
+      {% endif %}
+{% endblock content %}
+
+{% block title %} 
+{{title}}
+
+{% endblock title %}

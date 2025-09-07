@@ -1,0 +1,24 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.log
+
+# Django database
+db.sqlite3
+*.sqlite3
+
+# Media files
+media/
+staticfiles/
+
+# Virtual environments
+venv/
+env/
+
+# VSCode
+.vscode/
+
+# Environment / secret files
+*.env
+private_data.py
+apps/**/private_data.py

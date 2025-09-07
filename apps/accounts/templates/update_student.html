@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-3">
+    <h1 class='text-center'> UPdate-Student</h1>
+<form method='post' enctype="multipart/form-data">
+    {% csrf_token %}
+  <div class="mb-3 ">
+    <label for="name" class="form-label">Student Name</label>
+    <input type="text" class="form-control"  name='name'id="name"
+     aria-describedby="emailHelp" value='{{student.name}}'>
+    
+  </div>
+     
+  <div class="mb-3 ">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" name='email' 
+    id="exampleInputEmail1" aria-describedby="emailHelp"
+     value="{{student.email}}">
+    
+</div>
+  <div class="mb-3">
+    <label for="age" class="form-label">Age</label>
+    <input type="number" class="form-control" 
+    name='age'id="age" value='{{student.age}}'>
+  </div>
+ 
+
+  <select class="form-select" name='gender'
+  aria-label="Default select example">
+  <option selected>{{student.gender}}<option>
+  <option value="M">Male</option>
+  <option value="F">FeMale</option>
+  <option value="O">Others</option>
+</select>
+
+
+   <div class="mb-3">
+    <label for="image" class="form-label">Image</label>
+    <img src="{{student.image.url}}" alt="" height=50px>
+    <input type="file" class="form-control" 
+    name='image'id="image" value='{{student.image}}'>
+  </div>
+
+  <select class="form-select" name='branch'
+  aria-label="Default select example">
+  <option selected>{{student.branch}}</option>
+  <option value="CS">Computer Science</option>
+  <option value="AI">Airtificial Intelligence</option>
+  <option value="ML">Machine learning</option>
+</select>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+
+{% endblock content %}
